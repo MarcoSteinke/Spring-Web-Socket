@@ -4,5 +4,4 @@ Basic demo repository for using Spring Boot and web sockets.
 ## Usage:
 
 * 1. Call `localhost:8080` in two separate browser tabs.
-* 2. Click on the `connect`-button in both tabs
-* 3. if you now hit one of the `streamer`-buttons in one of the tabs, the "current" streamer will be updated
+* 3. if you now hit one of the `streamer`-buttons in one of the tabs, the "current" streamer will be updated in all connected tabs
