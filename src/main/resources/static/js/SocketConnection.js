@@ -1,7 +1,7 @@
 let stompClient;
 
-function connect(event) {
-    event.preventDefault();
+function connect() {
+    //event.preventDefault();
 
     // Now connect to the endpoint, defined in WebSocketConfiguration
     let socket = new SockJS('/mysocket');
@@ -15,6 +15,7 @@ function connect(event) {
 function onConnected() {
     // Subscribe to the topic main (channel)
     // if you use a "/" in the end of a string, you will also have to use it in the controller mapping
+    document.body.style.display = "block";
     stompClient.subscribe('/main/', onMessageReceived);
 }
 
@@ -35,6 +36,8 @@ function onError(error) {
     console.log("error");
 }
 
-document.querySelector("#connect").addEventListener(
+/*document.querySelector("#connect").addEventListener(
     "click", connect
-)
+)*/
+
+setTimeout(connect(), 2000);

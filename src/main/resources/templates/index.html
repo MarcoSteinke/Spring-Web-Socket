@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>My Demo Page</title>
 </head>
-<body>
-    <button id="connect">Connect</button>
+<body style="display: none;">
+    <!--<button id="connect">Connect</button>-->
     <hr>
-    <h2 id="streamer"></h2>
+    <h2 id="streamer" th:if="${streamer}" th:text="'Current streamer ' + ${streamer}"></h2>
     <hr>
     <h2>Stream Links:</h2>
     <ul id="links">

@@ -4,6 +4,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import spring.websocket.demo.model.StreamLink;
@@ -14,6 +15,7 @@ import java.util.List;
 public class WebSocketDemoController {
 
     private final List<StreamLink> links;
+    private static String streamer;
 
     @ModelAttribute("links")
     public List<StreamLink> addLinks() {
@@ -22,10 +24,12 @@ public class WebSocketDemoController {
 
     public WebSocketDemoController(List<StreamLink> links) {
         this.links = links;
+        WebSocketDemoController.streamer = links.get(0).getName();
     }
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("streamer", WebSocketDemoController.streamer);
         return "index";
     }
 
