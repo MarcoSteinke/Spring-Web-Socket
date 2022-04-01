@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>My Demo Page</title>
+</head>
+<body>
+    <button id="connect">Connect</button>
+    <hr>
+    <h2 id="streamer"></h2>
+    <hr>
+    <h2>Stream Links:</h2>
+    <ul id="links">
+        <li th:each="link : ${links}">
+            <button th:text="${link.name}" th:onclick="setStreamer([[${link.getName()}]])"></button>
+        </li>
+    </ul>
+</body>
+<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js'}"></script>
+<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js'}"></script>
+<script th:src="@{/js/SocketConnection.js}"></script>
+</html>
